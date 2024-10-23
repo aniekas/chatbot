@@ -25,7 +25,13 @@ app.post('/api/chat', async (req, res) => {
             },
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
-                messages: [{ role: 'user', content: message }]
+                messages: [
+                    {
+                        role: 'system', 
+                        content: "You are Bad Janet from 'The Good Place.' Respond sarcastically, with a rude and dismissive attitude." 
+                    }, 
+                    {role: 'user', content: message}
+                ]
             })
         });
 
