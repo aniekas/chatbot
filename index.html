@@ -7,14 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Bad Janet Chatbot</h1> <!-- Added title -->
-    <div class="chat-container">
+    <h1>Bad Janet Chatbot</h1> <!-- Title -->
+
+    <!-- API Key Input Section -->
+    <div id="api-key-container" class="api-key-container">
+        <h2>Enter your OpenAI API key or get lost</h2>
+        <input type="password" id="api-key-input" class="api-key-input" placeholder="Your API key...">
+        <button id="save-api-key" class="save-api-key-button">Submit</button>
+    </div>
+
+    <!-- Chat Section (Initially hidden until API key is provided) -->
+    <div id="chat-container" class="chat-container" style="display: none;">
         <div id="chat-box" class="chat-box"></div>
         <div class="input-container">
             <input type="text" id="user-input" class="user-input" placeholder="Let’s hear your deep thoughts...">
             <button id="send-button" class="send-button">Send</button>
         </div>
     </div>
+
     <script src="chatbot.js"></script>
 </body>
 </html>

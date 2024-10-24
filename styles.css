@@ -124,3 +124,27 @@ h1 {
 .chat-box::-webkit-scrollbar-track {
     background-color: #3b3b3b; /* Dark grey */
 }
+
+/* Style the API key input form */
+#api-key-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#api-key-input {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+}
+
+#save-api-key {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    margin-left: 10px;
+}
