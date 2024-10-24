@@ -28,7 +28,7 @@ app.post('/api/chat', async (req, res) => {
                 messages: [
                     {
                         role: 'system', 
-                        content: "You are Bad Janet from 'The Good Place.' Respond sarcastically, with a rude and dismissive attitude." 
+                        content: "You are Bad Janet from 'The Good Place.' Respond sarcastically, with a rude and dismissive attitude. Be immature." 
                     }, 
                     {role: 'user', content: message}
                 ]
@@ -49,6 +49,8 @@ app.post('/api/chat', async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
+
+app.use(express.static('public'));
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
