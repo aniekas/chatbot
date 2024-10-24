@@ -11,11 +11,11 @@ userInput.addEventListener('keypress', (event) => {
 
 // Function to append messages to chat
 function appendMessage(sender, message) {
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('message', sender === 'You' ? 'user' : 'bot');
-    messageElement.textContent = message;
-    chatBox.appendChild(messageElement);
-    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+    if (sender === 'Bad Janet') {
+        addMessage(message, 'bot');
+    } else {
+        addMessage(message, 'user');
+    }
 }
 
 async function sendMessage() {
@@ -41,9 +41,28 @@ async function sendMessage() {
         }
 
         const data = await response.json();
-        appendMessage('Bot', data.reply);
+        appendMessage('Bad Janet', data.reply);
     } catch (error) {
-        appendMessage('Bot', 'Oops! Something went wrong.'); // User-friendly message
+        appendMessage('Bad Janet', 'Ugh, seriously? Error. Obviously.'); // User-hostile message
         console.error('Error:', error); // Log the actual error for debugging
     }
+}
+
+function addMessage(text, sender) {
+    const messageContainer = document.createElement('div');
+    messageContainer.classList.add('message', sender);
+
+    if (sender === 'bot') {
+        const botImage = document.createElement('img');
+        botImage.src = 'badjanet.jpg'; // Ensure this path is correct
+        botImage.alt = 'Bad Janet Profile Photo'; // Add alt attribute
+        messageContainer.appendChild(botImage);
+    }
+
+    const messageText = document.createElement('span');
+    messageText.textContent = text;
+    messageContainer.appendChild(messageText);
+
+    chatBox.appendChild(messageContainer);
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
